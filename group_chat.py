@@ -17,8 +17,8 @@ kb_agent = get_knowledge_base_agent()
 notification_agent=get_notification_agent()
 
 # Bind this manually to the agent
-notification_agent.generate_replay = lambda messages, sender: escalate_ticket_with_email(
-    issue=messages[0]["content"]
+notification_agent.generate_reply = lambda messages, sender: escalate_ticket_with_email(
+    issue=messages[-1]["content"]
 )
 
 # Create user agent
